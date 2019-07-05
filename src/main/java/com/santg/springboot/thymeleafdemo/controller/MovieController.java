@@ -10,30 +10,30 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.santg.springboot.thymeleafdemo.model.Movie;
+import com.santg.springboot.thymeleafdemo.entity.Employee;
 
 @Controller
-@RequestMapping("/movies")
+@RequestMapping("/employees")
 public class MovieController {
 
 	 // load movies data
-	 private List<Movie> movies;
+	 private List<Employee> movies;
 	 
 	 @PostConstruct
 	 private void loadData() {
 		 
 		 // create movie
-		 Movie movie1 = new Movie(1, "Toy Story", "Pixar", "Fantasy");
-		 Movie movie2 = new Movie(2, "Spider-Man", "Marvel", "Science Fiction");
-		 Movie movie3 = new Movie(3, "Harry Potter", "Warner", "Fantasy");
+		 Employee emp1 = new Employee(1, "Liliana", "Vess", "liliana@mail.com");
+		 Employee emp2 = new Employee(2, "Jace", "Beleren", "jace@mail.com");
+		 Employee emp3 = new Employee(3, "Gideon", "Jura", "gideon@mail.com");
 		 
 		 // create list
 		 movies = new ArrayList<>();
 		 
 		 // add to list
-		 movies.add(movie1);
-		 movies.add(movie2);
-		 movies.add(movie3);
+		 movies.add(emp1);
+		 movies.add(emp2);
+		 movies.add(emp3);
 	 }
 	 
 	 // add mapping for "/list"
