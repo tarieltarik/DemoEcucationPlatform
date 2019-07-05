@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	<title>Movies Directory</title>
+</head>
+
+<body>
+<div>
+	<h3>Movies Directory</h3>
+	<hr>
+	
+	<table class="table table-bordered table-striped">
+	
+	<thead class="thead-dark">
+		<tr>
+			<th>Name</th>
+			<th>Author</th>
+			<th>Genre</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="tempMovie : ${movies}">
+			<td th:text="${tempMovie.name}"/>
+			<td th:text="${tempMovie.author}"/>
+			<td th:text="${tempMovie.genre}"/>
+		</tr>		
+	</tbody>	
+	</table>
+</div>
+</body>
+
+</html>
