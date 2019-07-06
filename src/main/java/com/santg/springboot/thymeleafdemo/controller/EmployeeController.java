@@ -14,7 +14,7 @@ import com.santg.springboot.thymeleafdemo.entity.Employee;
 
 @Controller
 @RequestMapping("/employees")
-public class MovieController {
+public class EmployeeController {
 
 	 // load movies data
 	 private List<Employee> movies;
