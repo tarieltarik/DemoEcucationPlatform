@@ -17,7 +17,7 @@ import com.santg.springboot.thymeleafdemo.entity.Employee;
 public class EmployeeController {
 
 	 // load movies data
-	 private List<Employee> movies;
+	 private List<Employee> employees;
 	 
 	 @PostConstruct
 	 private void loadData() {
@@ -28,21 +28,21 @@ public class EmployeeController {
 		 Employee emp3 = new Employee(3, "Gideon", "Jura", "gideon@mail.com");
 		 
 		 // create list
-		 movies = new ArrayList<>();
+		 employees = new ArrayList<>();
 		 
 		 // add to list
-		 movies.add(emp1);
-		 movies.add(emp2);
-		 movies.add(emp3);
+		 employees.add(emp1);
+		 employees.add(emp2);
+		 employees.add(emp3);
 	 }
 	 
 	 // add mapping for "/list"
 	 @GetMapping("/list")
-	 public String moviesList(Model model) {
+	 public String employeeList(Model model) {
 		 
 		 // add to the spring model
-		 model.addAttribute("movies", movies);
+		 model.addAttribute("employees", employees);
 		 
-		 return "movies-list";
+		 return "list-employees";
 	 }
 }
