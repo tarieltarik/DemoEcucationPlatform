@@ -10,10 +10,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="employee")
 public class Employee {
-	
 	// define fields
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
 	private int id;
 	

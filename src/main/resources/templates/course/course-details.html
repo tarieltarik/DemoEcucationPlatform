@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <head th:insert="fragments/head">
+</head>
+<body  style="padding-bottom: 150px;">
+  <header th:insert="fragments/header"></header>
+
+  <div class="container">
+
+
+    <h3>Страница статей</h3>
+    <hr>
+
+    <div></div>
+    <!-- Add button -->
+    <a th:href="@{/articles/add/{id}(id=${course.id})}"
+       class="btn btn-primary btn-sm mb-3">
+      Добавить статью
+    </a>
+
+    <h1 th:text="${course.title}"></h1>
+
+    <p th:text="${course.description}"></p>
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th>Заголовок статьи</th>
+        <th>Описание статьи</th>
+        <th style="width: 250px">Действия</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr th:each="article : ${course.articleList}">
+
+        <td th:text="${article.title}" />
+        <td th:text="${article.description}" />
+
+        <td>
+          <!--  Update button/link -->
+          <a th:href="@{/articles/update(articleId=${article.id},courseId=${course.id})}"
+             class="btn btn-info btn-sm">
+            Обновить
+          </a>
+          <!-- Delete button/link -->
+          <a th:href="@{/articles/delete(articleId=${article.id})}"
+             class="btn btn-danger btn-sm">
+            Удалить
+          </a>
+          <a th:href="@{/articles/details(articleId=${article.id})}"
+             class="btn btn-primary btn-sm">
+            Детали
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/course/list}">Вернуться</a>
+
+  </div>
+
+  <footer th:insert="fragments/footer"></footer>
+</body>
+</html>

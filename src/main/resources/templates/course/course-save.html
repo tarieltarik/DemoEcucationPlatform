@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <head th:insert="fragments/head">
+</head>
+
+<body  style="padding-bottom: 150px;">
+  <header th:insert="fragments/header"></header>
+
+  <div class="container">
+    <h3>Страничка для обновления или создания курсов</h3>
+    <hr>
+
+    <form action="#" th:action="@{/course/save}"
+          th:object="${course}" method="POST">
+      <input type="hidden" th:field="*{id}">
+      <input type="text" th:field="*{title}"
+             class="form-control mb-4 col-4" placeholder="Заголовок">
+      <textarea type="text" th:field="*{description}"
+                class="form-control mb-4 col-4" placeholder="Описание" style="height: 350px;width: 450px"/>
+      <button type="submit" class="btn btn-info col-2">Сохранить</button>
+    </form>
+    <hr>
+    <a th:href="@{/course/list}">Вернуться</a>
+
+  </div>
+
+  <footer th:insert="fragments/footer"></footer>
+</body>
+
+</html>

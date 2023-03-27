@@ -1,32 +1,96 @@
-# Intro
-This project covers a basic CRUD program using thymeleaf and spring boot to manage a data base
+# Проект плтаформа для обучения
+Создан с помощью Sprig Boot и спользует его модули которые приведины ниже.
+(Автор: Бейшеналиев Тариэль Пин-1-19)
 
-For this we start using a boilerplate generated in https://start.spring.io/ using
+Для избежания рутинных настроек мы с генерировали проект с помощью сайта: https://start.spring.io/.
+
+И добавили в него следущие модули:
 - Data JPA
 - Thymeleaf
 - Spring Boot Web
 - Spring Boot Devtools
-- MySql Connector
+- PostgreSql connector
+- Spring Security
+- Bootstrap
 
-## Reading
-The program reads from the database a list of employees and show them in a list ordered by its last name in desc order.
+## Авторизация на платформе
+Здесь стандартная форма для авторизации в которую нужно
+написать имя и пароль пользователя.
 
-![alt text](https://i.imgur.com/jeXErgX.png)
+![img_2.png](img_2.png)
 
-## Creating a new employee
-To add a new employee you must click the *Add Employee* button and you will get redirected to a form to fill the new employee data,
-when done clicking the save button will save the employee in the data base and you will get redirected to the main list.
+## Главаная сраница
+На главной странице отображается список курсов из базы данных.
+С помощью кнопки открыть мы можем переключится на страницу списка статей по 
+конкретному курсу.
 
-![alt text](https://i.imgur.com/9ITtClm.png)
+![img_3.png](img_3.png)
 
-## Updating an employee
-To update an employee you can click in the update button which will send you to the update form where you will get every field pre-filled
-with the employee data and you can change any text you want and click save when done and you will get redirected to the main list.
+## Страница для списка статей
+На этой странице отображается список статей связанный с курсом который вы выбрали.
+С помощью кнопки Читать вы сможете открыть конретную статью и озакомиться с ней.
 
-![alt text](https://i.imgur.com/yxYDxUi.png)
+![img_4.png](img_4.png)
 
-## Deleting an employee
-When clicking the delete button you will get a pop up asking for confirmation and if you click on agree that employee will be deleted from
-the database and the list will be updated.
+## Страница для ознакомления с статьей
+На этой странице отображается статься со всеми своими подтемами которые у него есть.
 
-![alt text](https://i.imgur.com/Utji3Vl.png)
+![img_5.png](img_5.png)
+
+## Страница для курсов
+При нажатии на меню "Курсы" мы переходим на страницу для админа с помощью которой он
+может изменять курсы.
+На этой странице есть возможность создать,изменить или удлаить курс с помощью
+соответсвующих кнопок.
+
+![img_6.png](img_6.png)
+
+![img_7.png](img_7.png)
+
+## Страница для статей
+При нажатии "Детали" на странице для курсов мы переходим на аналогичную страницу
+для статей.
+
+![img_8.png](img_8.png)
+
+![img_9.png](img_9.png)
+
+## Страница для подтем
+При нажатии "Детали" на странице для статей мы переходим на аналогичную страницу
+для подтем статей.
+
+![img_10.png](img_10.png)
+
+![img_11.png](img_11.png)
+
+## Страница для пользователей
+При нажатии на меню "Пользователи" мы переходим на страницу, где отображаются 
+все наши ползователи с их данными.
+На странице есть возможность создать или изменить пользователя.
+Также наши пользователи делятся на две роли USER и ADMIN.
+Только у админа есть возможность создавать,изменять и удалять
+курсы,статьи других пользователей.
+
+![img_12.png](img_12.png)
+
+![img_13.png](img_13.png)
+
+## Вход через роль User
+![img_14.png](img_14.png)
+
+![img_15.png](img_15.png)
+
+Как мы видим у пользователя с ролью USER нет возможности 
+что-то добавлять или удалять. У него нет возможности перехода
+на страницу для изменения курсов или других пользователей.
+Есть только возможность читать статьи и курсы.
+
+## Вход через роль ADMIN
+
+![img_16.png](img_16.png)
+![img_17.png](img_17.png)
+
+А здесь мы можем видеть что у пользователя с ролью ADMIN
+есть возможность изменять данные на стколько сколько
+позволяет платформа.
+

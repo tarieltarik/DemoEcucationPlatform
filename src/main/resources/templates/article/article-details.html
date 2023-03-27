@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <head th:insert="fragments/head">
+</head>
+<body style="padding-bottom: 150px;">
+    <header th:insert="fragments/header"></header>
+    <div class="container">
+
+
+        <h3>Детали статьи</h3>
+        <hr>
+
+        <div></div>
+        <!-- Add button -->
+        <a th:href="@{/subtitle/add/{id}(id=${article.id})}"
+           class="btn btn-primary btn-sm mb-3">
+            Добавить подтему
+        </a>
+
+        <h1 th:text="${article.title}"></h1>
+
+        <p th:text="${article.description}"></p>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Заголовок</th>
+                <th>Описание</th>
+                <th style="width: 250px">Действия</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="subtitle : ${article.subtitlesList}">
+
+                <td th:text="${subtitle.title}" />
+                <td th:text="${subtitle.description}" />
+
+                <td>
+                    <!--  Update button/link -->
+                    <a class="btn btn-info btn-sm"
+                       th:href="@{/subtitle/update/{id}/{subtopicId}(id = ${article.id},subtopicId= ${subtitle.id})}">
+                        Обновить
+                    </a>
+                    <!-- Delete button/link -->
+                    <a th:href="@{/subtitle/delete(subtopicId=${subtitle.id},articleId=${article.id})}"
+                       class="btn btn-danger btn-sm">
+                        Удалить
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <footer th:insert="fragments/footer"></footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+    <head>
+        <head th:insert="fragments/head"/>
+    </head>
+
+    <body style="padding-bottom: 150px;">
+
+    <div class="container">
+        <header th:insert="fragments/header"></header>
+        <p class="h4 mb-4">Страница для создания или обновления пользователя</p>
+
+        <form th:action="@{/user/save}" th:object="${user}" method="post" style="width: 350px;">
+            <p><input type="hidden" th:field="*{id}" /></p>
+
+            <p><label for="name">Имя</label></p>
+            <p><input type="text" th:field="*{username}" id="name"required
+                      class="form-control mb-4 col-4" ></p>
+
+            <p><label for="password">Пароль</label></p>
+            <p><input type="password" th:field="*{password}" id="password"
+                      class="form-control mb-4 col-4" ></p>
+
+            <p><label for="age">Возраст</label></p>
+            <p><input type="number" th:field="*{age}" id="age"></p>
+
+            <p>
+                <label class="description-from-type-label">Роли:
+                    <input type="checkbox" name="authorities"
+                           th:each="role : ${roleList}"
+                           th:text="${role.name()}"
+                           th:value="${role.name()}"
+                     class="ui-icon-check"/>
+                </label>
+            </p>
+            <p>
+                <input class="btn btn-info col-2" type="submit" value="add">
+            </p>
+
+        </form>
+        <footer th:insert="fragments/footer"></footer>
+    </div>
+
+
+
+    </body>
+</html>

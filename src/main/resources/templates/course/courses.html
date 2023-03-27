@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <head th:insert="fragments/head">
+</head>
+
+<body style="padding-bottom: 150px;">
+
+  <div class="container">
+    <header th:insert="fragments/header"></header>
+
+    <h3>Страница для изменения курсов</h3>
+    <hr>
+
+    <!-- Add button -->
+    <a th:href="@{/course/add}"
+       class="btn btn-primary btn-sm mb-3">
+      Добавить курс
+    </a>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th>Заголовок курса</th>
+        <th>Описание курса</th>
+        <th style="width: 250px">Действия</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr th:each="course : ${couresList}">
+
+        <td th:text="${course.title}" />
+        <td th:text="${course.description}" />
+
+        <td>
+          <!--  Update button/link -->
+          <a th:href="@{/course/update(courseId=${course.id})}"
+             class="btn btn-info btn-sm">
+            Обновить
+          </a>
+          <!-- Delete button/link -->
+          <a th:href="@{/course/delete(courseId=${course.id})}"
+             class="btn btn-danger btn-sm">
+           Удалить
+          </a>
+          <a th:href="@{/course/details/{id}(id=${course.id})}"
+             class="btn btn-primary btn-sm">
+            Детали
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <footer th:insert="fragments/footer"></footer>
+  </div>
+
+</body>
+</html>

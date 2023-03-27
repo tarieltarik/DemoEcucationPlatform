@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <head th:insert="fragments/head">
+    </head>
+
+<body style="padding-bottom: 150px;">
+
+<header th:insert="fragments/header"></header>
+
+<div class="container" style="margin:10px;">
+    <h1 th:text="${article.title}"></h1>
+    <p th:text="${article.description}" style="margin-bottom: 30px;"></p>
+
+    <tr th:each="subtopic : ${article.subtitlesList}" style="margin:20px;">
+        <h3 th:text="${subtopic.title}"></h3>
+        <p th:text="${article.description}"></p>
+    </tr>
+</div>
+
+<footer th:insert="fragments/footer"></footer>
+
+</body>
+
+</html>

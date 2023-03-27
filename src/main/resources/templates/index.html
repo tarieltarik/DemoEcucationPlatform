@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <head th:insert="fragments/head">
+</head>
+
+<body style="padding-bottom: 150px;">
+
+
+    <div class="container-fluid">
+        <header th:insert="fragments/header"></header>
+        <h1>Курсы для обучения</h1>
+
+        <tr th:each="course: ${courseList}">
+            <div class="row" style="margin: 20px;">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div  class="card-title" style="display: flex;">
+                                <i th:class="${course.icon}" style="color: #3f78d9;"></i>
+                                <p class="courseT" th:text="${course.title}" />
+                            </div>
+                            <p class="card-text" th:text="${course.description}"/>
+                            <a th:href="@{/articles/list/page(courseId=${course.id})}" class="btn btn-primary">Открыть</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tr>
+        <footer th:insert="fragments/footer"></footer>
+    </div>
+
+
+</body>
+
+</html>
