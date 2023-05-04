@@ -5,7 +5,7 @@
   <head th:insert="fragments/head">
 </head>
 
-<body style="padding-bottom: 150px;">
+<body style="padding-bottom: 150px;align-content: center;margin-left: 50px;margin-top: 150px;">
 
   <header th:insert="fragments/header"></header>
 
@@ -16,12 +16,16 @@
     <p class="h4 mb-4">Сохранить статью</p>
 
     <form action="#" th:action="@{/articles/save}"
-          th:object="${article}" method="POST">
+          th:object="${article}" method="POST" enctype="multipart/form-data">
       <input type="hidden" th:field="*{id}">
       <input type="text" th:field="*{title}"
              class="form-control mb-4 col-4" placeholder="Заголовок">
       <textarea type="text" th:field="*{description}"
              class="form-control mb-4 col-4" placeholder="Описание" style="height: 350px;width: 450px"/>
+      <div class="mb-3">
+        <label for="videoFile" class="form-label">Видео для загрузки</label>
+        <input class="form-control" type="file" id="videoFile" name="videoFile" accept="video/*,.mkv">
+      </div>
       <input type="hidden" name="courseId" th:value="${courseId}"/>
       <button type="submit" class="btn btn-info col-2">Сохранить</button>
     </form>

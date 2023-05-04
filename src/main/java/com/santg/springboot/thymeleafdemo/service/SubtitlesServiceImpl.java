@@ -1,6 +1,6 @@
 package com.santg.springboot.thymeleafdemo.service;
 
-import com.santg.springboot.thymeleafdemo.dao.SubtitleRepository;
+import com.santg.springboot.thymeleafdemo.repository.SubtitleRepository;
 import com.santg.springboot.thymeleafdemo.entity.Subtitles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

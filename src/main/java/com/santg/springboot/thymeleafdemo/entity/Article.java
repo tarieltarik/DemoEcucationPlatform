@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Cascade;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 import java.util.List;
 
 @Entity
@@ -34,4 +36,8 @@ public class Article {
 
     @OneToMany(mappedBy="article",cascade = CascadeType.ALL)
     private List<Subtitles> subtitlesList;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="video_id")
+    private VideoData videoData;
 }

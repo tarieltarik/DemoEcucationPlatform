@@ -1,10 +1,9 @@
 package com.santg.springboot.thymeleafdemo.controller;
 
-import com.santg.springboot.thymeleafdemo.dao.UserRepository;
+import com.santg.springboot.thymeleafdemo.repository.UserRepository;
 import com.santg.springboot.thymeleafdemo.entity.Role;
 import com.santg.springboot.thymeleafdemo.entity.User;
 import com.santg.springboot.thymeleafdemo.service.UserService;
-import com.santg.springboot.thymeleafdemo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;

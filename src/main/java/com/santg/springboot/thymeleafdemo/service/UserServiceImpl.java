@@ -1,6 +1,6 @@
 package com.santg.springboot.thymeleafdemo.service;
 
-import com.santg.springboot.thymeleafdemo.dao.UserRepository;
+import com.santg.springboot.thymeleafdemo.repository.UserRepository;
 import com.santg.springboot.thymeleafdemo.entity.Role;
 import com.santg.springboot.thymeleafdemo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,18 +5,29 @@
     <head th:insert="fragments/head">
     </head>
 
-<body style="padding-bottom: 150px;">
+<body style="padding-bottom: 150px;align-content: center;margin-left: 50px;margin-top: 150px;">
 
 <header th:insert="fragments/header"></header>
 
-<div class="container" style="margin:10px;">
+<div class="container" style="margin:10px;align-content: center;">
     <h1 th:text="${article.title}"></h1>
-    <p th:text="${article.description}" style="margin-bottom: 30px;"></p>
+    <p th:text="${article.description}" style="margin-bottom: 30px;align-content: center;"></p>
 
     <tr th:each="subtopic : ${article.subtitlesList}" style="margin:20px;">
         <h3 th:text="${subtopic.title}"></h3>
         <p th:text="${article.description}"></p>
+        <div th:if="${subtopic.imageData != null}" style="align-content: center;">
+            <img th:src="@{${subtopic.imageData.getImagePath()}}"
+                 th:alt="${subtopic.imageData.getName()}" style="width: 550px; height: 450px;margin-left: 150px;">
+        </div>
     </tr>
+
+    <div th:if="${article.getVideoData() != null}" style="align-content: center;margin: 50px;">
+
+        <video width="550" height="450"controls style="align-content: center;margin-left: 150px;">
+            <source th:src="@{${article.getVideoData().getVideoPath()}}" th:type="${article.getVideoData().getType()}">
+        </video>
+    </div>
 </div>
 
 <footer th:insert="fragments/footer"></footer>

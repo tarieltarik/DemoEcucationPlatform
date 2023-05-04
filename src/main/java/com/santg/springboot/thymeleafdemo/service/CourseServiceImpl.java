@@ -1,6 +1,6 @@
 package com.santg.springboot.thymeleafdemo.service;
 
-import com.santg.springboot.thymeleafdemo.dao.CourseRepository;
+import com.santg.springboot.thymeleafdemo.repository.CourseRepository;
 import com.santg.springboot.thymeleafdemo.entity.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

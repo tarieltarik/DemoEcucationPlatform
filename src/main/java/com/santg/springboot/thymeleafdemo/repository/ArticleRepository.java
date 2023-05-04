@@ -1,7 +1,6 @@
-package com.santg.springboot.thymeleafdemo.dao;
+package com.santg.springboot.thymeleafdemo.repository;
 
 import com.santg.springboot.thymeleafdemo.entity.Article;
-import com.santg.springboot.thymeleafdemo.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -29,4 +29,8 @@ public class Subtitles {
     @ManyToOne
     @JoinColumn(name="article_id", nullable=false)
     private Article article;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="image_id")
+    private ImageData imageData;
 }

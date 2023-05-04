@@ -1,24 +1,28 @@
 package com.santg.springboot.thymeleafdemo.controller;
 
 import com.santg.springboot.thymeleafdemo.entity.Article;
+import com.santg.springboot.thymeleafdemo.entity.VideoData;
 import com.santg.springboot.thymeleafdemo.service.ArticleService;
+import com.santg.springboot.thymeleafdemo.service.VideoDataService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
 @RequestMapping("/articles")
+@RequiredArgsConstructor
 public class ArticleController {
 
-    private ArticleService articleService;
+    private final ArticleService articleService;
 
-    @Autowired
-    public ArticleController(ArticleService articleService){
-        this.articleService = articleService;
-    }
+    private final VideoDataService videoDataService;
 
     @GetMapping("/list")
     public String getArticleList(Model model){
@@ -36,7 +40,15 @@ public class ArticleController {
     }
 
     @PostMapping("/save")
-    public String saveArticle(@ModelAttribute("article") Article article,@RequestParam("courseId") Long courseId) {
+    public String saveArticle(@ModelAttribute("article") Article article,@RequestParam("courseId") Long courseId,
+                              @RequestParam(name="videoFile",required = false) MultipartFile multipartFile) {
+        if(multipartFile != null){
+            try {
+                VideoData videoData = videoDataService.save(multipartFile);
+                article.setVideoData(videoData);
+            } catch (IOException e) {
+            }
+        }
         articleService.saveArticle(article,courseId);
         return "redirect:/course/details/" + courseId;
     }

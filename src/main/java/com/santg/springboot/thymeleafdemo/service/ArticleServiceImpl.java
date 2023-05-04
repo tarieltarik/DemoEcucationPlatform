@@ -1,14 +1,14 @@
 package com.santg.springboot.thymeleafdemo.service;
 
-import com.santg.springboot.thymeleafdemo.dao.ArticleRepository;
-import com.santg.springboot.thymeleafdemo.dao.CourseRepository;
+import com.santg.springboot.thymeleafdemo.entity.VideoData;
+import com.santg.springboot.thymeleafdemo.repository.ArticleRepository;
+import com.santg.springboot.thymeleafdemo.repository.CourseRepository;
 import com.santg.springboot.thymeleafdemo.entity.Article;
 import com.santg.springboot.thymeleafdemo.entity.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ArticleServiceImpl implements ArticleService{
