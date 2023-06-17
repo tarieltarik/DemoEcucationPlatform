@@ -48,7 +48,7 @@ public class SubtitleController {
 
         //if file not null
 
-        if(multipartFile != null){
+        if(!multipartFile.isEmpty()){
             try {
                 ImageData imageData = imageDataService.save(multipartFile);
                 subtitle.setImageData(imageData);

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <head th:insert="fragments/head"/>
+    </head>
+</head>
+<body style="padding-bottom: 150px;align-content: center;margin-left: 50px;margin-top: 150px;">
+
+<div class="container">
+    <h1>File download and upload page</h1>
+    <header th:insert="fragments/header"></header>
+    <a th:href="@{/doc/upload}"
+       class="btn btn-primary btn-sm mb-3">
+        Добавить file
+    </a>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>File name</th>
+            <th style="width: 250px">Действия</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="file : ${fileList}">
+
+            <td th:text="${file.filename}" />
+
+            <td>
+                <a th:href="@{/doc/download(fileId=${file.id})}"
+                   class="btn btn-info btn-sm">
+                    Скачать
+                </a>
+                <a th:href="@{/doc/delete(fileId=${file.id})}"
+                   class="btn btn-danger btn-sm">
+                    Удалить
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <footer th:insert="fragments/footer"></footer>
+</div>
+
+
+
+</body>
+</html>
